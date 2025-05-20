@@ -1,0 +1,17 @@
+{
+  "name": "chatapp-using_nodejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "type": "module",
+  "author": "Raghav Sejpal",
+  "license": "MIT",
+  "description": "A simple real-time chat app using Node.js, Express, and Socket.io with user login, live messaging, user join/leave notifications, and optional MongoDB support for message persistence and chat rooms.",
+  "devDependencies": {
+    "eslint": "^9.27.0",
+    "nodemon": "^3.1.10"
+  }
+}
