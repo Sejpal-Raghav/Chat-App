@@ -47,16 +47,17 @@ body {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  position: fixed;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.username-input, .chat-room, .login-button {
+.username-input, .chatRoom, .login-button {
   height: 48px;
   border-radius: 8px;
   background-color: var(--input-bg);
   border: none;
   padding: 0 12px;
-  font-size: 16px;
+  font-size: 13.333px;
   outline: none;
   color: var(--text-color);
   transition: background-color 0.3s ease;
@@ -77,9 +78,14 @@ body {
 }
 
 #UserInput{
-    background-color: var(--input-bg);
-    border: none;
-    padding-top: 5%;
+  height: 48px;
+  border-radius: 8px;
+  background-color: var(--input-bg);
+  border: none;
+  padding: 0 1px;
+  font-size: 13.3333px;
+  outline: none;
+  color: var(--text-color);
 }
 
 #username{
@@ -95,4 +101,40 @@ select {
   background-color: var(--input-bg, #f9f9f9);
   color: var(--text-color, #333);
   appearance: none;
+}
+
+.HeadingSection{
+  padding-bottom: 80vh;
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 500;
+  font-style: normal;
+  justify-content: center;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.Heading{
+  font-size: 38px;
+  margin: 0px;
+}
+
+.subHeading{
+  margin: 0px;
+  font-size: 15px;
+  font-family: Verdana, Tahoma, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.login-page{
+  display: flex;
+  flex-direction: column;
+  }
+
+#chatroom{
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
 }

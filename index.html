@@ -5,18 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChimeIn</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="script" href="script.js">
+    <script src="script.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <!-- Div containing the main part, the chat box -->
     <div class="login-page">
+        <div class="HeadingSection">
+                <p class="Heading">
+                    Welcome to ChimeIn
+                </p>
+                <p class="subHeading">
+                    Silence is Overrated!
+                </p>
+        </div>
         <div id="loginBox" class="login-box">
             
             <div id="username" class="username-input">
                 <input type="text" placeholder="Username" id="UserInput">
             </div>
             <div id="chatroom" class="chatroom-input">
-                <label for="chatRoom">Choose a chat room:</label>
+                <label id="chatRoom-label" for="chatRoom">Choose your chat room:</label>
                 <select name= "chatRoom" id="chatRoom">
                     <option value="general">General</option>
                     <option value="tech">Tech</option>
