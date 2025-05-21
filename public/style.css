@@ -3,7 +3,8 @@
   --card-bg: #ffffff;          
   --text-color: #1f2937;
   --accent-color: #2d8cff;        
-  --input-bg: #eef2f7;            
+  --input-bg: #eef2f7;
+  --border-color: #171718;
   --shadow: rgba(0, 0, 0, 0.08);  
 }
 
@@ -12,7 +13,8 @@
     --card-bg: #1e293b;           
     --text-color: #e2e8f0;        
     --accent-color: #3b82f6;      
-    --input-bg: #2c3e50;          
+    --input-bg: #2c3e50;
+    --border-color: #ededf3;
     --shadow: rgba(0, 0, 0, 0.4); 
   }
 
