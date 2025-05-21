@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<html data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,11 +18,16 @@
     <div class="login-page">
         <div class="HeadingSection">
                 <p class="Heading">
-                    Welcome to ChimeIn
+                    Welcome to ChimeIn !
                 </p>
-                <p class="subHeading">
-                    Silence is Overrated!
-                </p>
+
+                <div class="modeSwitch">
+                        <button id="theme-toggle" class="toggle">
+  <img id="light-icon" width="34" height="34" src="images\day.svg">
+  <img src="images\night.png" id="dark-icon" width="34" height="34" style="display: none;">
+</button>
+
+                </div>
         </div>
         <div id="loginBox" class="login-box">
             

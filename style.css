@@ -1,4 +1,4 @@
-:root {
+[data-theme="light"] {
   --bg-color: #f5f7fa;            
   --card-bg: #ffffff;             
   --text-color: #1f2937;          
@@ -7,8 +7,7 @@
   --shadow: rgba(0, 0, 0, 0.08);  
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
+[data-theme="dark"] {
     --bg-color: #121826;          
     --card-bg: #1e293b;           
     --text-color: #e2e8f0;        
@@ -16,7 +15,6 @@
     --input-bg: #2c3e50;          
     --shadow: rgba(0, 0, 0, 0.4); 
   }
-}
 
 body {
   background-color: var(--bg-color);
@@ -111,21 +109,13 @@ select {
   justify-content: center;
   align-content: center;
   display: flex;
-  flex-direction: column;
   gap: 0px;
 }
 
 .Heading{
   font-size: 38px;
   margin: 0px;
-}
-
-.subHeading{
-  margin: 0px;
-  font-size: 15px;
-  font-family: Verdana, Tahoma, sans-serif;
-  font-weight: 500;
-  font-style: normal;
+  position: fixed;
 }
 
 .login-page{
@@ -137,4 +127,33 @@ select {
   display: flex;
   flex-direction: column;
   gap: 7px;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.toggle {
+  margin-top: 20px;
+  background-color: var(--toggle-bg);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+.toggle:hover {
+  transform: scale(1.1);
+}
+
+.modeSwitch{
+  align-items: baseline;
+  margin: 2px;
+  margin-right: 1100px;
 }
