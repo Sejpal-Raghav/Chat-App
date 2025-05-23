@@ -1,4 +1,4 @@
-import { handleLogin } from "../routes/loginFunctionality.js";
+import { handleLogin } from "./routes/loginFunctionality.js";
 
 const toggleBtn = document.getElementById("theme-toggle");
 const lightIcon = document.getElementById("light-icon");
@@ -68,4 +68,3 @@ messageForm.addEventListener('submit', e => {
   socket.emit('send-chat-message', message)
   messageInput.value = ''
 })
-
