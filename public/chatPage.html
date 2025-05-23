@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     </script>
+    <script defer src="http://localhost:5000/socket.io/socket.io.js"></script>
 </head>
 <body>
     <div class="chat-page">
@@ -33,9 +34,10 @@
             <div class="messageView">
                 Sample messages
             </div>
-            <div class="typeHere">
-                <input type="text" placeholder="Start getting chatty here...">
-            </div>
+            <form id="send-region">
+                <input type="text" placeholder="Start getting chatty here..." id="message-input">
+                <button type="submit" id="send-button">Send</button>
+            </form>
         </div>
         <div class="infoSection">
             <div class="numberOfPeople">
