@@ -79,6 +79,7 @@ body {
 
 #UserInput{
   height: 48px;
+  width: 325px;
   border-radius: 8px;
   background-color: var(--input-bg);
   border: none;
@@ -158,4 +159,22 @@ select {
   align-items: baseline;
   margin: 2px;
   margin-right: 1100px;
+}
+
+.privateChatRoom{
+  text-align: center;
+}
+
+#here_privateChatRoom{
+  color: var(--accent-color);
+  background-color: var(--card-bg);
+  border: none;
+  font-size: 16px;
+  margin: 0%;
+  padding: 0%;
+}
+
+#here_privateChatRoom:hover {
+  color: #085feb;
+  text-decoration: underline;
 }

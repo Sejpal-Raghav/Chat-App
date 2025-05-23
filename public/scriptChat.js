@@ -1,8 +1,6 @@
 const toggleBtn = document.getElementById("theme-toggle");
 const lightIcon = document.getElementById("light-icon");
 const darkIcon = document.getElementById("dark-icon");
-const loginButton = document.getElementById("loginButton");
-const privateChatRoomButton = document.getElementById("here_privateChatRoom");
 
 const theme = document.documentElement.getAttribute("data-theme");
 
@@ -29,18 +27,3 @@ toggleBtn.addEventListener("click", () => {
     darkIcon.style.display = "none";
   }
 });
-
-loginButton.addEventListener("click", () => {
-  window.location.href = "/chatPage";
-})
-
-privateChatRoomButton.addEventListener("click", () => {
-  const roomId = function getRandomInt(min, max) {
-    min = 123456;
-    max = 943987;
-  const minCeiled = Math.ceil(min);
-  const maxFloored = Math.floor(max);
-  return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
-}
-  window.location.href = "/privateChat/id=" + roomId.toString();
-})

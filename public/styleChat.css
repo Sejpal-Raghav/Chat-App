@@ -1,0 +1,91 @@
+[data-theme="light"] {
+  --bg-color: #f5f7fa;
+  --card-bg: #ffffff;          
+  --text-color: #1f2937;
+  --accent-color: #2d8cff;        
+  --input-bg: #eef2f7;
+  --border-color: #171718;
+  --shadow: rgba(0, 0, 0, 0.08);  
+}
+
+[data-theme="dark"] {
+    --bg-color: #121826;          
+    --card-bg: #1e293b;           
+    --text-color: #e2e8f0;        
+    --accent-color: #3b82f6;      
+    --input-bg: #2c3e50;
+    --border-color: #ededf3;
+    --shadow: rgba(0, 0, 0, 0.4); 
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header{
+    display: flex;
+    gap: 400px;
+    margin: 6%;
+    margin-top: 2%;
+}
+
+#theme-toggle {
+  border: none;
+  background-color: var(--bg-color);
+  border-radius: 50px;
+  transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+#theme-toggle:hover{
+  transform: scale(1.1);
+  transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+.chatBox{
+  display: flex;
+  height: 400px;
+  width: 1150px;
+  border: 3px solid var(--border-color);
+  border-radius: 8px;
+  margin-top: 3%;
+  margin-left: 5%;
+}
+
+.chatPage {
+  display: flex;
+  flex-direction: column;
+}
+
+.infoSection{
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 400px;
+  border-left: 3px solid var(--border-color);
+}
+
+.messageBox{
+  width: 850px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.numberOfPeople{
+  height: 100px;
+  width: 250px;
+  border-bottom: 3px solid var(--border-color);
+  margin: 0%;
+  padding: 0%;
+}
+
+.messageView{
+  height: 350px;
+}

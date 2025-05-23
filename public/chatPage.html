@@ -1,1 +1,51 @@
-chatpage
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleChat.css">
+    <script src="scriptChat.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    </script>
+</head>
+<body>
+    <div class="chat-page">
+    <div class="header">
+        <div class="usernameDisplay">
+            Username
+        </div>
+        <div class="welcome">
+            Welcome to ChimeIn
+        </div>
+        <div class="modeSwitch">
+            <button id="theme-toggle" class="toggle">
+              <img id="light-icon" width="34" height="34" src="images\day.png">
+              <img src="images\night.png" id="dark-icon" width="34" height="34" style="display: none;">
+            </button>
+        </div>
+    </div>
+
+    <div class="chatBox">
+        <div class="messageBox">
+            <div class="messageView">
+                Sample messages
+            </div>
+            <div class="typeHere">
+                <input type="text" placeholder="Start getting chatty here...">
+            </div>
+        </div>
+        <div class="infoSection">
+            <div class="numberOfPeople">
+                Number of people Online: 
+            </div>
+            <div class="onlineUsers">
+                Online users: 
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
