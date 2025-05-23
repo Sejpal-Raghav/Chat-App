@@ -1,4 +1,4 @@
-function handleLogin(req, res){
+export function handleLogin(req, res){
     let body = '';
     req.on('data', chunk => {
         body+=chunk.toString();
@@ -16,5 +16,3 @@ function handleLogin(req, res){
     }
   });
 }
-
-export function handleLogin() {};

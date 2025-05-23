@@ -7,7 +7,13 @@ import { handleLogin } from './routes/loginFunctionality.js';
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
 const server = http.createServer((req, res) => {
-    let filename = path.join(__dirname, 'public', req.url === '/' ? 'index.html' : req.url);
+    let requestedPath = req.url === '/' ? '/index.html' : req.url;
+
+if (!path.extname(requestedPath)) {
+  requestedPath += '.html';
+}
+
+let filename = path.join(__dirname, 'public', requestedPath);
 
     const ext = path.extname(filename);
     let contentType = 'text/html';
@@ -21,6 +27,13 @@ const server = http.createServer((req, res) => {
         case '.svg': contentType = 'image/svg+xml'; break;
     }
 
+    if (req.method === 'POST' && req.url === '/chatPage') {
+        handleLogin(req, res);
+        res.writeHead(302, { location: '/chatPage'});
+        res.end()
+    return;
+}
+
     fs.readFile(filename, (err, content)=>{
             if(err){
             res.writeHead('404', {'Content-Type': 'text/html'})
@@ -32,4 +45,6 @@ const server = http.createServer((req, res) => {
             res.end();
             }
         })
+
+
     }).listen(5000);
