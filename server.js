@@ -29,19 +29,17 @@ let filename = path.join(__dirname, 'public', requestedPath);
     }
 
     if (req.method === 'POST' && req.url === '/chatPage') {
-        handleLogin(req, res);
-        res.writeHead(302, { location: '/chatPage'});
-        res.end()
+    handleLogin(req, res);
     return;
 }
 
     fs.readFile(filename, (err, content)=>{
             if(err){
-            res.writeHead('404', {'Content-Type': 'text/html'})
+            res.writeHead(404, {'Content-Type': 'text/html'})
             return res.end('404 Not Found')
             }
             else{
-            res.writeHead('200', {'Content-Type': contentType})
+            res.writeHead(200, {'Content-Type': contentType})
             res.write(content);
             res.end();
             }

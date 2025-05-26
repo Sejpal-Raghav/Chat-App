@@ -30,10 +30,6 @@ toggleBtn.addEventListener("click", () => {
   }
 });
 
-loginButton.addEventListener("click", () => {
-  window.location.href = "/chatPage";
-})
-
 privateChatRoomButton.addEventListener("click", () => {
   const roomId = function getRandomInt(min, max) {
     min = 123456;
@@ -43,4 +39,24 @@ privateChatRoomButton.addEventListener("click", () => {
   return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
 }
   window.location.href = "/privateChat/id=" + roomId.toString();
+})
+
+loginButton.addEventListener('click', async () => {
+  const username = document.getElementById('username').value.trim()
+  const data = new URLSearchParams()
+  data.append('username', username)
+
+  const res = await fetch('/chatPage', {
+    method: 'POST',
+    body: data
+  })
+
+  const result = await res.json()
+
+  if (result.success) {
+    localStorage.setItem('username', result.user)
+    window.location.href = '/chatPage'
+  } else {
+    alert('Login failed')
+  }
 })

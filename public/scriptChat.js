@@ -1,5 +1,3 @@
-import { handleLogin } from "./routes/loginFunctionality.js";
-
 const toggleBtn = document.getElementById("theme-toggle");
 const lightIcon = document.getElementById("light-icon");
 const darkIcon = document.getElementById("dark-icon");
@@ -35,11 +33,14 @@ const socket = io('http://localhost:5000');
 const messageBox = document.getElementById('messageBox')
 const messageForm = document.getElementById('send-region');
 const messageInput = document.getElementById('message-input');
-let name;
+const name = localStorage.getItem('username')
 
-handleLogin(req, res, (username) => {
-  name = username;
-})
+if (!name) {
+  window.location.href = '/'
+}
+
+socket.emit('new-user', name)
+
 
 function appendMessage(message) {
   const messageElement = document.createElement('div')
