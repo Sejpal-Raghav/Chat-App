@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styleChat.css">
-    <script src="scriptChat.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     </script>
-    <script defer src="http://localhost:5000/socket.io/socket.io.js"></script>
 </head>
 <body>
+    <script src="http://localhost:5000/socket.io/socket.io.js"></script>
     <div class="chat-page">
     <div class="header">
-        <div class="usernameDisplay">
+        <div class="usernameDisplay" id="usernameDisplay">
             Username
         </div>
         <div class="welcome">
@@ -30,12 +29,9 @@
     </div>
 
     <div class="chatBox">
-        <div class="messageBox">
-            <div class="messageView">
-                Sample messages
-            </div>
+        <div class="messageBox" id="messageBox">
             <form id="send-region">
-                <input type="text" placeholder="Start getting chatty here..." id="message-input">
+                <input type="text" placeholder="Start getting chatty here..." id="message-input" required>
                 <button type="submit" id="send-button">Send</button>
             </form>
         </div>
@@ -49,5 +45,7 @@
         </div>
     </div>
     </div>
+
+    <script src="scriptChat.js"></script>
 </body>
 </html>

@@ -29,7 +29,7 @@ toggleBtn.addEventListener("click", () => {
 });
 
 
-const socket = io('http://localhost:5000');
+const socket = io('localhost:5000');
 const messageBox = document.getElementById('messageBox')
 const messageForm = document.getElementById('send-region');
 const messageInput = document.getElementById('message-input');
@@ -39,33 +39,35 @@ if (!name) {
   window.location.href = '/'
 }
 
-socket.emit('new-user', name)
-
-
 function appendMessage(message) {
   const messageElement = document.createElement('div')
   messageElement.innerText = message
-  messageContainer.append(messageElement)
+  messageBox.appendChild(messageElement)
 }
 
 socket.emit('new-user', name)
 
-socket.on('chat-message', data => {
+socket.on('chat-message', (data) => {
   appendMessage(`${data.name}: ${data.message}`)
 })
 
-socket.on('user-connected', name => {
+socket.on('user-connected', (name) => {
   appendMessage(`${name} connected`)
 })
 
-socket.on('user-disconnected', name => {
+socket.on('user-disconnected', (name) => {
   appendMessage(`${name} disconnected`)
 })
 
-messageForm.addEventListener('submit', e => {
-  e.preventDefault()
-  const message = messageInput.value
-  appendMessage(`You: ${message}`)
-  socket.emit('send-chat-message', message)
-  messageInput.value = ''
+messageForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  console.log("Submit handler triggered");
+  const message = messageInput.value;
+  appendMessage(`You: ${message}`);
+  socket.emit('send-chat-message', message);
+  messageInput.value = '';
 })
+
+console.log('messageBox element:', document.getElementById('messageBox'));
+console.log('All elements with messageBox class:', document.getElementsByClassName('messageBox'));
+console.log('Document ready state:', document.readyState);

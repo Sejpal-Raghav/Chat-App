@@ -41,22 +41,31 @@ privateChatRoomButton.addEventListener("click", () => {
   window.location.href = "/privateChat/id=" + roomId.toString();
 })
 
-loginButton.addEventListener('click', async () => {
-  const username = document.getElementById('username').value.trim()
-  const data = new URLSearchParams()
-  data.append('username', username)
+loginButton.addEventListener('click', async (event) => {
+  event.preventDefault();
+  console.log('Login button clicked');
 
-  const res = await fetch('/chatPage', {
-    method: 'POST',
-    body: data
-  })
+  const username = document.getElementById('username').value;
+  const data = new URLSearchParams();
+  data.append('username', username);
 
-  const result = await res.json()
+  try {
+    const res = await fetch('http://localhost:5000/chatPage', {
+      method: 'POST',
+      body: data
+    });
 
-  if (result.success) {
-    localStorage.setItem('username', result.user)
-    window.location.href = '/chatPage'
-  } else {
-    alert('Login failed')
+    const result = await res.json();
+    console.log('Response:', result);
+
+    if (result.success) {
+      localStorage.setItem('username', result.user);
+      window.location.href = '/chatPage';
+    } else {
+      alert('Login failed');
+    }
+  } catch (err) {
+    console.error('Error during fetch:', err);
+    alert('Something went wrong. See console.');
   }
-})
+});
