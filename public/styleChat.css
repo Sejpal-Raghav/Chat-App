@@ -10,7 +10,7 @@
 
 [data-theme="dark"] {
   --bg-color: #121826;          
-  --card-bg: #1e293b;           
+  --card-bg: #1e293b;
   --text-color: #e2e8f0;        
   --accent-color: #3b82f6;      
   --input-bg: #2c3e50;
@@ -136,7 +136,7 @@ body {
 }
 
 .send-message {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;

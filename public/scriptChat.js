@@ -2,6 +2,9 @@ const toggleBtn = document.getElementById("theme-toggle");
 const lightIcon = document.getElementById("light-icon");
 const darkIcon = document.getElementById("dark-icon");
 
+const usernameDisplay = document.getElementById("usernameDisplay")
+usernameDisplay.innerText = sessionStorage.getItem('username');
+
 const theme = document.documentElement.getAttribute("data-theme");
 
 if (theme === "dark") {
@@ -33,12 +36,6 @@ const socket = io('localhost:5000');
 const messageBox = document.getElementById('messageBox')
 const messageForm = document.getElementById('send-region');
 const messageInput = document.getElementById('message-input');
-const name = localStorage.getItem('username')
-console.log(name)
-
-if (!name) {
-  window.location.href = '/'
-}
 
 function appendMessage(message) {
   const messageElement = document.createElement('div')

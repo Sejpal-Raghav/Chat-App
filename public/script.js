@@ -45,7 +45,7 @@ loginButton.addEventListener('click', async (event) => {
   event.preventDefault();
   console.log('Login button clicked');
 
-  const username = document.getElementById('username').value;
+  const username = document.getElementById('UserInput').value;
   const data = new URLSearchParams();
   data.append('username', username);
 
@@ -58,8 +58,8 @@ loginButton.addEventListener('click', async (event) => {
     const result = await res.json();
     console.log('Response:', result);
 
+    sessionStorage.setItem('username', result.user);
     if (result.success) {
-      localStorage.setItem('username', result.user);
       window.location.href = '/chatPage';
     } else {
       alert('Login failed');
