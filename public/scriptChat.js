@@ -34,6 +34,7 @@ const messageBox = document.getElementById('messageBox')
 const messageForm = document.getElementById('send-region');
 const messageInput = document.getElementById('message-input');
 const name = localStorage.getItem('username')
+console.log(name)
 
 if (!name) {
   window.location.href = '/'
