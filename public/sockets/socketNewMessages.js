@@ -1,4 +1,4 @@
-import config from './config.js';
+import config from './public/config/config.js';
 
 export function appendMessage(messageBox, message) {
   const messageElement = document.createElement("div");

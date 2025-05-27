@@ -1,4 +1,4 @@
-import config from './config.js';
+import config from './config/config.js';
 
 import { themeToggle } from "./utils/themeToggle.js";
 const toggleBtn = document.getElementById("theme-toggle");
