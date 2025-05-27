@@ -1,3 +1,5 @@
+import config from './config.js';
+
 import { themeToggle } from "./utils/themeToggle.js";
 const toggleBtn = document.getElementById("theme-toggle");
 const lightIcon = document.getElementById("light-icon");
@@ -25,7 +27,7 @@ loginButton.addEventListener('click', async (event) => {
   data.append('username', username);
 
   try {
-    const res = await fetch('http://localhost:5000/chatPage', {
+    const res = await fetch(`${config.apiUrl}/chatPage`, {
       method: 'POST',
       body: data
     });

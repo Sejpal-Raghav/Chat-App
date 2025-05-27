@@ -1,3 +1,5 @@
+import config from './config.js';
+
 export function appendMessage(messageBox, message) {
   const messageElement = document.createElement("div");
   messageElement.innerText = message;
@@ -5,7 +7,7 @@ export function appendMessage(messageBox, message) {
 }
 
 export function socketImplementation(messageBox, messageForm, messageInput) {
-const socket = io("http://localhost:5000");
+const socket = io(config.apiUrl);
 const name = sessionStorage.getItem("username");
 // const users = {};
 
