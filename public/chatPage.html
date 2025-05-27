@@ -1,53 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styleChat.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    </script>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="styleChat.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
 </head>
 <body>
-    <script src="http://localhost:5000/socket.io/socket.io.js"></script>
     <div class="chat-page">
-    <div class="header">
-        <div class="usernameDisplay" id="usernameDisplay">
-            Username
-        </div>
-        <div class="welcome">
-            Welcome to the Gaming room
-        </div>
-        <div class="modeSwitch">
-            <button id="theme-toggle" class="toggle">
-              <img id="light-icon" width="34" height="34" src="images\day.png">
-              <img src="images\night.png" id="dark-icon" width="34" height="34" style="display: none;">
-            </button>
-        </div>
-    </div>
-
-    <div class="chatBox">
-        <div class="messageBox" id="messageBox">
-            <div class="send-message">
-                <form id="send-region">
-                    <input type="text" placeholder="Start getting chatty here..." id="message-input" required>
-                    <button type="submit" id="send-button">Send</button>
-                </form>
+        <div class="header">
+            <div class="usernameDisplay" id="usernameDisplay">
+                Username
+            </div>
+            <div class="welcome">
+                Welcome to the Gaming room
+            </div>
+            <div class="modeSwitch">
+                <button id="theme-toggle" class="toggle">
+                    <img id="light-icon" width="34" height="34" src="images\day.png">
+                    <img src="images\night.png" id="dark-icon" width="34" height="34" style="display: none;">
+                </button>
             </div>
         </div>
-        <div class="infoSection">
-            <div class="numberOfPeople">
-                Number of people Online: 
+        
+        <div class="chatBox">
+            <div class="messageBox" id="messageBox">
+                <div class="send-message">
+                    <form id="send-region">
+                        <input type="text" placeholder="Start getting chatty here..." id="message-input" required>
+                        <button type="submit" id="send-button">Send</button>
+                    </form>
+                </div>
             </div>
-            <div class="onlineUsers">
-                Online users: 
+            <div class="infoSection">
+                <div class="numberOfPeople">
+                    Number of people Online: 
+                </div>
+                <div class="onlineUsers">
+                    Online users: 
+                </div>
             </div>
         </div>
     </div>
-    </div>
-
+    
     <script type="module" src="scriptChat.js"></script>
 </body>
 </html>

@@ -1,34 +1,33 @@
-export function name(messageBox, messageForm, messageInput) {
-    const url = `localhost:${process.env.PORT}`;
-const socket = io(url);
-const name = sessionStorage.getItem("username");
-const users = {};
-
-function appendMessage(message) {
+export function appendMessage(messageBox, message) {
   const messageElement = document.createElement("div");
   messageElement.innerText = message;
   messageBox.appendChild(messageElement);
 }
 
+export function socketImplementation(messageBox, messageForm, messageInput) {
+const socket = io("http://localhost:5000");
+const name = sessionStorage.getItem("username");
+// const users = {};
+
 socket.emit("new-user", name);
 
 socket.on("chat-message", (data) => {
-  appendMessage(`${data.name}: ${data.message}`);
+  appendMessage(messageBox, `${data.name}: ${data.message}`);
 });
 
 socket.on("user-connected", (name) => {
-  appendMessage(`${name} connected`);
+  appendMessage(messageBox, `${name} connected`);
 });
 
 socket.on("user-disconnected", (name) => {
-  appendMessage(`${name} disconnected`);
+  appendMessage(messageBox, `${name} disconnected`);
 });
 
 messageForm.addEventListener("submit", (e) => {
   e.preventDefault();
   console.log("Submit handler triggered");
   const message = messageInput.value;
-  appendMessage(`You: ${message}`);
+  appendMessage(messageBox, `You: ${message}`);
   socket.emit("send-chat-message", message);
   messageInput.value = "";
 });

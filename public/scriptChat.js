@@ -1,5 +1,5 @@
 import { themeToggle } from "./utils/themeToggle.js";
-import { socketImplementation } from "./sockets/socketImplementation.js";
+import { socketImplementation, appendMessage } from "./sockets/socketImplementation.js";
 const toggleBtn = document.getElementById("theme-toggle");
 const lightIcon = document.getElementById("light-icon");
 const darkIcon = document.getElementById("dark-icon");
