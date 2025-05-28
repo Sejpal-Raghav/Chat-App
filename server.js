@@ -4,9 +4,16 @@ import path from 'path';
 import fs from 'fs';
 import { Server } from 'socket.io';
 import { handleLogin } from './routes/loginFunctionality.js';
-import { config } from './public/config/config.js'
+import config from './public/config/config.js'
+import dotenv from 'dotenv'
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
+const env = process.env.NODE_ENV || 'development';
+const envPath = path.resolve(__dirname, `.env.${env}`);
+
+if (fs.existsSync(envPath)) {
+  dotenv.config({ path: envPath });
+};
 
 const server = http.createServer((req, res) => {
   

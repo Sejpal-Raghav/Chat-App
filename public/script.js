@@ -1,5 +1,3 @@
-import config from './config/config.js';
-
 import { themeToggle } from "./utils/themeToggle.js";
 const toggleBtn = document.getElementById("theme-toggle");
 const lightIcon = document.getElementById("light-icon");
@@ -8,16 +6,18 @@ themeToggle(lightIcon, darkIcon, toggleBtn);
 const privateChatRoomButton = document.getElementById("here_privateChatRoom");
 
 privateChatRoomButton.addEventListener("click", () => {
-  const roomId = function getRandomInt(min, max) {
+  function getRandomInt(min, max) {
     min = 123456;
     max = 943987;
-  const minCeiled = Math.ceil(min);
-  const maxFloored = Math.floor(max);
-  return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
+    const minCeiled = Math.ceil(min);
+    const maxFloored = Math.floor(max);
+    return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
 }
+const roomId = getRandomInt();
   window.location.href = "/privateChat/id=" + roomId.toString();
 })
 
+const loginButton = document.getElementById("login-button");
 loginButton.addEventListener('click', async (event) => {
   event.preventDefault();
   console.log('Login button clicked');
