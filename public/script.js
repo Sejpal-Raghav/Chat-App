@@ -17,32 +17,17 @@ const roomId = getRandomInt();
   window.location.href = "/privateChat/id=" + roomId.toString();
 })
 
-const loginButton = document.getElementById("login-button");
-loginButton.addEventListener('click', async (event) => {
-  event.preventDefault();
-  console.log('Login button clicked');
+const form = document.getElementById('form');
+form.addEventListener('submit', async(e)=>{
+  e.preventDefault();
+  const username = e.target.username.value;
 
-  const username = document.getElementById('UserInput').value;
-  const data = new URLSearchParams();
-  data.append('username', username);
+  const res = await fetch('/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
+    body: `username=${encodeURIComponent(username)}`
+  });
 
-  try {
-    const res = await fetch(`${config.apiUrl}/chatPage`, {
-      method: 'POST',
-      body: data
-    });
-
-    const result = await res.json();
-    console.log('Response:', result);
-
-    sessionStorage.setItem('username', result.user);
-    if (result.success) {
-      window.location.href = '/chatPage';
-    } else {
-      alert('Login failed');
-    }
-  } catch (err) {
-    console.error('Error during fetch:', err);
-    alert('Something went wrong. See console.');
-  }
-});
+  const data = await res.json();
+  console.log(data);
+})

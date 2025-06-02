@@ -51,26 +51,17 @@ body {
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.username-input, .chatRoom, .login-button {
+.login-button {
   height: 48px;
   border-radius: 8px;
-  background-color: var(--input-bg);
+  background-color: var(--accent-color);
   border: none;
+  cursor: -moz-zoom-in;
   padding: 0 12px;
   font-size: 13.333px;
   outline: none;
   color: var(--text-color);
   transition: background-color 0.3s ease;
-}
-
-.login-button {
-  background-color: var(--accent-color);
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .login-button:hover {
@@ -87,12 +78,6 @@ body {
   font-size: 13.3333px;
   outline: none;
   color: var(--text-color);
-}
-
-#username{
-    align-items: center;
-    justify-content: center;
-    border: none;
 }
 
 select {
@@ -126,12 +111,6 @@ select {
   flex-direction: column;
   }
 
-#chatroom{
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-
 .container {
   min-height: 100vh;
   display: flex;
@@ -159,22 +138,4 @@ select {
   align-items: baseline;
   margin: 2px;
   margin-right: 1100px;
-}
-
-.privateChatRoom{
-  text-align: center;
-}
-
-#here_privateChatRoom{
-  color: var(--accent-color);
-  background-color: var(--card-bg);
-  border: none;
-  font-size: 16px;
-  margin: 0%;
-  padding: 0%;
-}
-
-#here_privateChatRoom:hover {
-  color: #085feb;
-  text-decoration: underline;
 }

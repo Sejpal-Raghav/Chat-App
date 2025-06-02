@@ -29,32 +29,18 @@
             </button>
           </div>
         </div>
-        <div id="loginBox" class="login-box">
-          <div id="username" class="username-input">
-            <input type="text" placeholder="Username" id="UserInput">
-          </div>
-          <div id="chatroom" class="chatroom-input">
-            <label id="chatRoom-label" for="chatRoom">
-              Choose your chat room:
-            </label>
-            <select name="chatRoom" id="chatRoom">
-              <option value="general">
-                General
-              </option>
-              <option value="tech">
-                Tech
-              </option>
-              <option value="gaming">
-                Gaming
-              </option>
+        <div class="login-box">
+          <form id="form" method="post" action="/chatroom">
+            <input type="text" name="username" id="UserInput">
+
+            <select name="options" id="options">
+              <option value="General">General</option>
+              <option value="Tech">Tech</option>
+              <option value="Gaming">Gaming</option>
             </select>
-          </div>
-          <div class="privateChatRoom">
-  Click <button type="button" id="here_privateChatRoom">here</button> for a private chat room
-</div>
-          <button type="button" id="loginButton" class="login-button">
-            Login
-          </button>
+
+            <button id="login-button" class="login-button" type="submit">Login</button>
+          </form>
         </div>
       </div>
       <script type="module" src="script.js" defer></script>

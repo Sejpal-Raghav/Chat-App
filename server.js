@@ -1,76 +1,26 @@
-import http from 'http';
-import url from 'url';
+import express from 'express';
 import path from 'path';
-import fs from 'fs';
-import { Server } from 'socket.io';
+import { fileURLToPath } from 'url';
 import { handleLogin } from './routes/loginFunctionality.js';
-import config from './public/config/config.js'
-import dotenv from 'dotenv'
 
-const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
-const env = process.env.NODE_ENV || 'development';
-const envPath = path.resolve(__dirname, `.env.${env}`);
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-if (fs.existsSync(envPath)) {
-  dotenv.config({ path: envPath });
-};
-
-const server = http.createServer((req, res) => {
-  
-  res.setHeader("Access-Control-Allow-Origin", config.apiUrl);
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-
-  if (req.method === "OPTIONS") {
-    res.writeHead(204);
-    res.end();
-    return;
-  }
-
-
-  let requestedPath = req.url === '/' ? '/index.html' : req.url;
-
-  if (!path.extname(requestedPath)) {
-    requestedPath += '.html';
-  }
-
-  let filename = path.join(__dirname, 'public', requestedPath);
-  const ext = path.extname(filename);
-  let contentType = 'text/html';
-
-  switch (ext) {
-    case '.js': contentType = 'text/javascript'; break;
-    case '.css': contentType = 'text/css'; break;
-    case '.json': contentType = 'application/json'; break;
-    case '.png': contentType = 'image/png'; break;
-    case '.jpg': contentType = 'image/jpeg'; break;
-    case '.svg': contentType = 'image/svg+xml'; break;
-  }
-
-  if (req.method === 'POST' && req.url === '/chatPage') {
-    handleLogin(req, res);
-    return;
-  }
-
-  fs.readFile(filename, (err, content) => {
-    if (err) {
-      res.writeHead(404, { 'Content-Type': 'text/html' });
-      return res.end('404 Not Found');
-    } else {
-      res.writeHead(200, { 'Content-Type': contentType });
-      res.end(content);
-    }
-  });
-});
-
-const io = new Server(server, {
-  cors: {
-    origin: config.apiUrl,
-    methods: ["GET", "POST"]
-  }
-});
-
+const app = express();
 const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: true}));
+app.use(express.json());
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+})
+
+app.post('/chatroom', handleLogin);
+app.get('/chatroom', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'chatPage.html'));
+})
+
+app.listen(PORT, ()=>{
+  console.log("Server running!");
 });
