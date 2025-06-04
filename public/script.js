@@ -31,3 +31,20 @@ form.addEventListener('submit', async(e)=>{
   const data = await res.json();
   console.log(data);
 })
+
+let pathName = document.getElementById('form').getAttribute('action');
+const roomType = document.getElementById('options').value;
+switch (roomType) {
+  case "General":
+    pathName = "/chatroom/general";
+    break;
+  case "Gaming":
+    pathName = "/chatroom/gaming";
+    break;
+  case "Tech":
+    pathName = "/chatroom/tech"
+    break;
+  default:
+    pathName = "/chatroom/general";
+    break;
+}

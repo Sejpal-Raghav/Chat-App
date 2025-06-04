@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 
 app.post('/chatroom', handleLogin);
 app.get('/chatroom', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'chatPage.html'));
+    res.sendFile(path.join(__dirname, 'public', 'general.html'));
 })
 
 app.listen(PORT, ()=>{
