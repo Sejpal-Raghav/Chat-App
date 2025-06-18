@@ -6,9 +6,16 @@ const darkIcon = document.getElementById("dark-icon");
 themeToggle(lightIcon, darkIcon, toggleBtn);
 
 const usernameDisplay = document.getElementById("usernameDisplay");
-usernameDisplay.innerText = sessionStorage.getItem("username");
+const username = sessionStorage.getItem("username");
+if (usernameDisplay && username) {
+  usernameDisplay.innerText = username;
+}
 
 const messageBox = document.getElementById("messageBox");
 const messageForm = document.getElementById("send-region");
 const messageInput = document.getElementById("message-input");
 socketImplementation(messageBox, messageForm, messageInput);
+
+window.addEventListener('beforeunload', () => {
+  sessionStorage.clear();
+});
